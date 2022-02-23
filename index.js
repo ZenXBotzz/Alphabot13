@@ -173,13 +173,13 @@ banChats = setting.self_mode
 autorespon = true
 offline = false
 readGc = true 
-readPc = true
+readPc = false 
 antitrol = false 
 bugc = false
 autovn = true
 autoketik = false
 autoregister = setting.user_register
-typemenu = 'troli'
+typemenu = 'document'
 img = setting.img
 baper = setting.ownername
 apiku = 'https://zeeoneofc.github.io/'
@@ -1674,7 +1674,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
         }
       }
     }
-    if (isGroup && !mek.key.fromMe && !isGroupAdmins && !isOwner && !isCreator && isBotGroupAdmins){
+    if (isGroup && !mek.key.fromMe && isAntiLink && !isGroupAdmins && !isOwner && !isCreator && isBotGroupAdmins){
             if (chatxs.match(/(https:\/\/chat.whatsapp.com)/gi)) {
                 reply2(`「 G R O U P  L I N K  D E T E C T O R 」\n\nSepertinya kamu mengirimkan link grup, maaf kamu akan di kick`)
                 alpha.groupRemove(from, [sender])
@@ -3376,7 +3376,7 @@ break
 					ran = getRandom('.png')
 					exec(`ffmpeg -i ${mediaa} ${ran}`, (err) => {
 					fs.unlinkSync(mediaa)
-					if (err) return reply('Yah gagal, coba ulangi ^_^')
+					if (err) return reply('*ERROR BOTZ*')
 					buffer = fs.readFileSync(ran)
 					fakethumb(buffer,'Webp To Image')
 					fs.unlinkSync(ran)
